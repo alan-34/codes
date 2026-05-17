@@ -1,0 +1,94 @@
+# ====================================================================
+# PHASE 1: INITIAL SETUP & CONFIGURATION (Commands 1-2)
+# ====================================================================
+
+# 1. Set up your global Git identity (Replace with your name and email)
+git config --global user.name "Your Name"
+git config --global user.config "your.email@example.com"
+
+# 2. Verify your configuration settings
+git config --list
+
+
+# ====================================================================
+# PHASE 2: LOCAL REPOSITORY CREATION (Commands 3-7)
+# ====================================================================
+
+# Create a mock project directory and navigate into it
+mkdir smart-vision-app
+cd smart-vision-app
+
+# 3. Initialize a brand new local Git repository
+git init
+
+# Create some dummy project files to work with
+echo "# Smart Vision Application" > README.md
+echo "import os" > main.py
+mkdir config
+echo "learning_rate = 0.01" > config/settings.py
+
+# 4. Check the current status of your working directory (shows untracked files)
+git status
+
+# 5. Add a specific file to the Staging Area
+git add README.md
+
+# 6. Add all remaining untracked files and changes to the Staging Area
+git add .
+
+# 7. Commit the staged files to your local repository history
+git commit -m "Initial commit: Set up project structure and README"
+
+
+# ====================================================================
+# PHASE 3: LINKING TO GITHUB & PUSHING (Commands 8-9)
+# ====================================================================
+
+# NOTE: Before running command 8, go to GitHub, create a new blank repository 
+# named "smart-vision-app", and copy its HTTPS/SSH URL.
+
+# 8. Link your local repository to the remote GitHub repository
+# (Replace the URL below with your actual GitHub repository URL)
+git remote add origin https://github.com/your-username/smart-vision-app.git
+
+# 9. Push your local 'master' (or 'main') branch code to GitHub
+# (Use -u to set the default upstream remote)
+git push -u origin master
+
+
+# ====================================================================
+# PHASE 4: BRANCHING & FEATURE DEVELOPMENT (Commands 10-12)
+# ====================================================================
+
+# 10. Create a new branch for developing a new feature
+git branch feature-logging
+
+# 11. Switch to your newly created feature branch
+git checkout feature-logging
+
+# Simulating work: Let's modify a file in this branch
+echo "print('Log: Pipeline started')" >> main.py
+
+# Stage and commit the changes locally on this branch
+git add main.py
+git commit -m "Add basic logging functionality to main.py"
+
+
+# ====================================================================
+# PHASE 5: MERGING & HISTORY (Commands 13-14)
+# ====================================================================
+
+# Switch back to the main branch first
+git checkout master
+
+# 12. Merge the completed feature branch into your master branch
+git merge feature-logging
+
+# 13. View the commit history log to show your assignment progress
+git log --oneline
+
+# 14. Show details about the very last commit made
+git show HEAD
+
+# Final Step: Push the newly merged changes back up to GitHub
+git push origin master

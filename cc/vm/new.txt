@@ -1,0 +1,63 @@
+# =========================================================
+# PRE-PHASE: VIRTUALBOX GUI CONFIGURATION (Do this first!)
+# =========================================================
+# 1. Open VirtualBox -> File -> Tools -> Network Manager.
+# 2. Tab: "NAT Networks" -> Create -> Name: "my_vm_network".
+# 3. Set IPv4 Prefix: 10.0.2.0/24 -> Apply.
+# 4. VM 1 Settings -> Network -> Attached to: NAT Network (my_vm_network).
+# 5. VM 2 Settings -> Network -> Attached to: NAT Network (my_vm_network).
+# 6. Start both VMs.
+
+# =========================================================
+# PHASE 1: NETWORK INTERFACE SETUP (Assign Static IPs)
+# =========================================================
+
+# --- RUN ON VM 1 (Sender) ---
+# Assign IP and disable firewall
+sudo ifconfig eth0 10.0.2.15 netmask 255.255.255.0 up
+sudo ufw disable
+
+# --- RUN ON VM 2 (Receiver) ---
+# Assign IP and disable firewall
+sudo ifconfig eth0 10.0.2.3 netmask 255.255.255.0 up
+sudo ufw disable
+
+
+# =========================================================
+# PHASE 2: ASSIGNMENT C4 (File Preparation & Local Display)
+# =========================================================
+
+# --- RUN ON VM 1 ONLY ---
+# 1. Create two text files
+echo "Hey, How are you? This is file 1." > transfer.txt
+echo "This is the second file for listing requirement." > file2.txt
+
+# 2. Display content before transfer (Required for C4)
+cat transfer.txt
+cat file2.txt
+
+# 3. List all files present in VM 1 (Required for C4)
+ls -l
+
+
+# =========================================================
+# PHASE 3: THE TRANSFER (Using SCP)
+# =========================================================
+
+# --- RUN ON VM 1 ONLY ---
+# Transfer both files to VM 2 (10.0.2.3)
+# Note: Type 'yes' if asked; Password is 'vagrant'
+scp transfer.txt file2.txt vagrant@10.0.2.3:/home/vagrant
+
+
+# =========================================================
+# PHASE 4: VERIFICATION (Final Display)
+# =========================================================
+
+# --- RUN ON VM 2 ONLY ---
+# 1. List all files present in VM 2 (To show files arrived)
+ls -l
+
+# 2. Display the text in the file after transfer
+cat transfer.txt
+cat file2.txt

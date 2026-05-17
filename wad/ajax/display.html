@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered Users List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html">&larr; Back to Register</a>
+    <h2>Registered Users (From Local Storage)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- JavaScript will insert rows here -->
+        </tbody>
+    </table>
+
+    <script>
+        // 1. Grab the array from Local Storage
+        const savedUsers = JSON.parse(localStorage.getItem('myUsersList')) || [];
+        const tableBody = document.getElementById('tableBody');
+
+        // 2. Check if we have users, then loop through and display them
+        if (savedUsers.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="2">No users registered yet.</td></tr>`;
+        } else {
+            savedUsers.forEach(user => {
+                const row = `<tr>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                </tr>`;
+                tableBody.innerHTML += row; // Append row to table
+            });
+        }
+    </script>
+
+</body>
+</html>

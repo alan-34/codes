@@ -1,0 +1,20 @@
+$body = @{
+    title = "Assignment 2.C"
+    description = "Backend CRUD operation scripts"
+    score = 95
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "http://localhost:3000/api/assignments" -Method POST -Body $body -ContentType "application/json"
+
+Invoke-RestMethod -Uri "http://localhost:3000/api/assignments" -Method GET
+
+$updateBody = @{
+    title = "Assignment 2.C"
+    description = "Backend CRUD operation scripts"
+    score = 100
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "http://localhost:3000/api/assignments/YOUR_MONGODB_ID_HERE" -Method PUT -Body $updateBody -ContentType "application/json"
+
+Invoke-RestMethod -Uri "http://localhost:3000/api/assignments/YOUR_MONGODB_ID_HERE" -Method DELETE
+

@@ -1,0 +1,69 @@
+# ====================================================================
+# STEP 1: BUILD THE IMAGE (Turns your Dockerfile into a template)
+# ====================================================================
+docker build -t my-custom-image .
+
+
+# ====================================================================
+# STEP 2: RUN AND ENTER THE CONTAINER (Creates the live environment)
+# ====================================================================
+# This runs it interactively (-it), names the instance, and drops you inside
+docker run -it --name my-running-container my-custom-image
+
+
+# ====================================================================
+# STEP 3: RUN THESE COMMANDS INSIDE THE CONTAINER PROMPT
+# ====================================================================
+
+# --- Level 1: Basic Navigation ---
+# Check current directory path
+pwd
+
+# List all files with details
+ls -la
+
+# View the file created by the Dockerfile
+cat readme.txt
+
+
+# --- Level 2: System Inspection ---
+# View basic kernel details
+uname -a
+
+# View operating system distribution details
+cat /etc/os-release
+
+# Print a visual system summary layout
+neofetch
+
+# View running processes inside the container
+ps aux
+
+
+# --- Level 3: Advanced Networking & Architecture ---
+# Check internal container network routing
+ip route
+
+# Fetch data from an external web API to prove internet connectivity
+curl -s https://api.github.com | head -n 10
+
+# Display a visual tree structure of the file system
+tree /
+
+
+# --- Level 4: Create Data and Exit ---
+# Dynamically create a folder and file inside the live instance
+mkdir proof && cd proof
+echo "Container task verified" > verification.log
+ls -l
+
+# Exit the container back to your host terminal
+exit
+
+
+# ====================================================================
+# STEP 4: OPTIONAL - HOW TO USE EXEC TO JUMP BACK IN LATER
+# ====================================================================
+# If you ever exit and want to jump back into this exact same container:
+docker start my-running-container
+docker exec -it my-running-container /bin/sh

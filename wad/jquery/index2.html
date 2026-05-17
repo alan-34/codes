@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advanced jQuery Mobile Portal</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page" id="dashboardPage">
+
+        <div data-role="panel" id="navDrawer" data-display="overlay" data-theme="b">
+            <h3 style="margin-top:20px; border-bottom:1px solid #444; padding-bottom:10px;">Navigation</h3>
+            <ul data-role="listview" data-theme="b">
+                <li><a href="#dashboardPage" data-transition="fade">Dashboard Home</a></li>
+                <li><a href="#coursesPage" data-transition="slide">Explore Courses</a></li>
+                <li><a href="#faqPage" data-transition="slideup">Student FAQs</a></li>
+            </ul>
+            <br>
+            <a href="#navDrawer" data-rel="close" class="ui-btn ui-icon-delete ui-btn-icon-left ui-corner-all">Close Menu</a>
+        </div>
+
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#navDrawer" class="ui-btn ui-icon-bars ui-btn-icon-left ui-corner-all ui-shadow">Menu</a>
+            <h1>AIT Student Portal</h1>
+            <a href="#" class="ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all">Settings</a>
+            
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#dashboardPage" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+                    <li><a href="#coursesPage" data-transition="slide" data-icon="grid">Courses</a></li>
+                    <li><a href="#faqPage" data-transition="slideup" data-icon="info">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content">
+            <div class="ui-body ui-body-a ui-corner-all ui-shadow" style="margin-bottom:20px; text-align:center;">
+                <h3>Welcome Back, Officer</h3>
+                <p>Term: <strong>Semester VI (TE-IT)</strong> | Current Rating: <strong>1700+</strong></p>
+            </div>
+
+            <h4>Quick Metrics Panel</h4>
+            <div class="ui-grid-a" style="text-align: center; margin-bottom: 20px;">
+                <div class="ui-block-a">
+                    <div class="ui-body ui-body-b ui-corner-all ui-shadow" style="margin:5px; padding:15px 0;">
+                        <span style="font-size:24px; font-weight:bold; color:#2ecc71;">94%</span>
+                        <p style="margin:5px 0 0 0; font-size:12px;">Attendance</p>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-body ui-body-b ui-corner-all ui-shadow" style="margin:5px; padding:15px 0;">
+                        <span style="font-size:24px; font-weight:bold; color:#3498db;">8.92</span>
+                        <p style="margin:5px 0 0 0; font-size:12px;">Current CGPA</p>
+                    </div>
+                </div>
+                <div class="ui-block-a">
+                    <div class="ui-body ui-body-b ui-corner-all ui-shadow" style="margin:5px; padding:15px 0;">
+                        <span style="font-size:24px; font-weight:bold; color:#e67e22;">02</span>
+                        <p style="margin:5px 0 0 0; font-size:12px;">Active Projects</p>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-body ui-body-b ui-corner-all ui-shadow" style="margin:5px; padding:15px 0;">
+                        <span style="font-size:24px; font-weight:bold; color:#e74c3c;">00</span>
+                        <p style="margin:5px 0 0 0; font-size:12px;">Pending Backlogs</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4>System Tasks</h4>
+            <div data-role="controlgroup" data-type="vertical" data-corner-all="true" class="ui-shadow">
+                <a href="#coursesPage" data-transition="slide" class="ui-btn ui-icon-search ui-btn-icon-left">Access Syllabus Tracker</a>
+                <a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left" onclick="alert('Submission portal loading...')">Upload Term Work Logs</a>
+                <a href="#faqPage" data-transition="slideup" class="ui-btn ui-icon-info ui-btn-icon-left">Open Support Knowledgebase</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4 style="font-size:11px;">AIT Management Console v3.1.0</h4>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="coursesPage">
+
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#dashboardPage" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all">Back</a>
+            <h1>Syllabus Modules</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#dashboardPage" data-direction="reverse" data-transition="slide" data-icon="home">Home</a></li>
+                    <li><a href="#coursesPage" class="ui-btn-active ui-state-persist" data-icon="grid">Courses</a></li>
+                    <li><a href="#faqPage" data-transition="slideup" data-icon="info">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h3>Information Technology Stack</h3>
+            <p class="ui-text-mini text-muted">Use the client search filter down below to filter academic modules in real-time.</p>
+
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Query curriculum database..." class="ui-shadow">
+                <li data-role="list-divider" data-theme="b">Core Technical Subjects</li>
+                
+                <li data-icon="arrow-r">
+                    <a href="#">
+                        <h2>Cloud Computing Architecture</h2>
+                        <p><strong>Code: IT-3012</strong> | Focuses on AWS, serverless execution, containers, and orchestration grids.</p>
+                        <span class="ui-li-count">Unit I-VI</span>
+                    </a>
+                </li>
+                
+                <li data-icon="arrow-r">
+                    <a href="#">
+                        <h2>Data Science & Big Data Analytics (DSBDA)</h2>
+                        <p><strong>Code: IT-3013</strong> | Processing pipelines using Hadoop MapReduce frameworks, Apache Spark, and NumPy implementations.</p>
+                        <span class="ui-li-count">Unit I-VI</span>
+                    </a>
+                </li>
+
+                <li data-role="list-divider" data-theme="b">Electives & Research Domain</li>
+
+                <li data-icon="arrow-r">
+                    <a href="#">
+                        <h2>Computer Vision & Intelligent Vision Engineering</h2>
+                        <p><strong>Code: EL-4011</strong> | Deep target detection paradigms featuring real-time YOLO modeling configurations and dataset mapping.</p>
+                        <span class="ui-li-count">Advanced</span>
+                    </a>
+                </li>
+                
+                <li data-icon="arrow-r">
+                    <a href="#">
+                        <h2>NeuroAI & Spiking Neural Engineering</h2>
+                        <p><strong>Code: EL-4012</strong> | Biologically inspired brain model computing frameworks, network spike distributions, and synapse coding patterns.</p>
+                        <span class="ui-li-count">Research</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4 style="font-size:11px;">Curriculum Management Matrix</h4>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="faqPage">
+
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a href="#dashboardPage" data-direction="reverse" data-transition="slideup" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all">Back</a>
+            <h1>Knowledge Center</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#dashboardPage" data-direction="reverse" data-transition="slideup" data-icon="home">Home</a></li>
+                    <li><a href="#coursesPage" data-direction="reverse" data-transition="slide" data-icon="grid">Courses</a></li>
+                    <li><a href="#faqPage" class="ui-btn-active ui-state-persist" data-icon="info">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h3>Frequently Asked Questions</h3>
+            <p>Tap on the topics below to toggle expandable explanation containers.</p>
+
+            <div data-role="collapsible-set" data-theme="a" data-content-theme="a" class="ui-shadow">
+                
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>How do I claim my hackathon server credits?</h3>
+                    <p>Navigate to the system profile dashboard, copy your active project validation token (e.g., P.U.L.S.E.), and paste it under the cloud configurations utility block. Credits renew every semester session automatically.</p>
+                </div>
+                
+                <div data-role="collapsible">
+                    <h3>What are the hardware standards for Vision tasks?</h3>
+                    <p>For model training or local detection executions, a workstation with at least an NVIDIA Dedicated Laptop GPU (like the RTX Series) configured with the latest CUDA toolkit drivers and isolated Linux runtimes (e.g., Fedora) is highly recommended.</p>
+                </div>
+                
+                <div data-role="collapsible">
+                    <h3>How are Chess Team tournament seeds allocated?</h3>
+                    <p>Seeds are allocated strictly based on current competitive rating indices. Profiles with a rating index of 1700+ automatically qualify for advanced positioning brackets during inter-collegiate technical athletic fixtures.</p>
+                </div>
+
+                <div data-role="collapsible">
+                    <h3>Where are local browser states written?</h3>
+                    <p>All data collected across interactive input widgets on this application gets pushed into stringified values directly inside your browser cache's <code>localStorage</code> framework layer safely.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4 style="font-size:11px;">Knowledge Retrieval Node</h4>
+        </div>
+    </div>
+
+</body>
+</html>

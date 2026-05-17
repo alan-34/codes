@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Mobile Website</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page" id="home">
+        
+        <div data-role="header" data-theme="b">
+            <h1>Mobile Portal</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2 style="text-align:center;">Welcome to Our Mobile Site</h2>
+            <p>This layout is built completely using jQuery Mobile framework wrappers. It delivers touch-optimized layouts instantly.</p>
+            
+            <a href="#services" data-transition="slide" class="ui-btn ui-icon-grid ui-btn-icon-left ui-corner-all ui-shadow">View Services</a>
+            <a href="#contact" data-transition="pop" class="ui-btn ui-icon-mail ui-btn-icon-left ui-corner-all ui-shadow ui-btn-b">Contact Us</a>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>© 2026 Mobile App Assignment</h4>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="services">
+        
+        <div data-role="header" data-theme="b">
+            <a href="#home" data-direction="reverse" data-transition="slide" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+            <h1>Our Services</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" data-filter="true" data-input="#search-input" placeholder="Search services...">
+                <li data-role="list-divider">Core Catalog</li>
+                <li><a href="#">Web Application Development</a></li>
+                <li><a href="#">Mobile UI/UX Design</a></li>
+                <li><a href="#">Cloud Infrastructure Setup</a></li>
+                <li><a href="#">Database Optimization Ops</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>Services Panel</h4>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="contact">
+        
+        <div data-role="header" data-theme="b">
+            <a href="#home" data-direction="reverse" data-transition="pop" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+            <h1>Connect</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h3>Drop us a message:</h3>
+            <form id="mobileForm" onsubmit="alert('Message Sent successfully!'); reset(); return false;">
+                <div class="ui-field-contain">
+                    <label for="nameInput">Your Name:</label>
+                    <input type="text" name="nameInput" id="nameInput" placeholder="Enter full name" required>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="querySelect">Select Department:</label>
+                    <select name="querySelect" id="querySelect" data-native-menu="false">
+                        <option value="sales">Sales & Estimates</option>
+                        <option value="support">Technical Support</option>
+                        <option value="general">General Inquiries</option>
+                    </select>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="msgInput">Message:</label>
+                    <textarea name="msgInput" id="msgInput" placeholder="Type message details..."></textarea>
+                </div>
+
+                <button type="submit" class="ui-btn ui-btn-b ui-corner-all ui-shadow">Send Message</button>
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>Contact Center Footer</h4>
+        </div>
+    </div>
+
+</body>
+</html>

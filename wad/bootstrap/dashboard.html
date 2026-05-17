@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Admin Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        /* Sidebar styling for desktop */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 48px 0 0;
+            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+            background-color: #212529;
+        }
+        .sidebar .nav-link {
+            color: #b3b7bb;
+        }
+        .sidebar .nav-link.active {
+            color: #fff;
+            background-color: #0d6efd;
+        }
+        .sidebar .nav-link:hover {
+            color: #fff;
+        }
+        /* Adjust main content positioning based on sidebar */
+        @media (min-width: 768px) {
+            .main-content {
+                margin-left: 240px; /* Width of the sidebar */
+            }
+            .sidebar {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Navbar for Mobile Toggle -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark d-md-none sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- SIDEBAR -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <h5 class="text-white px-3 mb-4 d-none d-md-block">Admin Dashboard</h5>
+                    <ul class="nav flex-column gap-2 px-2">
+                        <li class="nav-item">
+                            <a class="nav-link active rounded" href="#">
+                                <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" href="#">
+                                <i class="bi bi-cart3 me-2"></i> Academics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" href="#">
+                                <i class="bi bi-mortarboard me-2"></i> College / Courses
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" href="#">
+                                <i class="bi bi-file-earmark-text me-2"></i> Exams / Results
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" href="#">
+                                <i class="bi bi-people me-2"></i> Users & Students
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link rounded" href="#">
+                                <i class="bi bi-gear me-2"></i> Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- MAIN CONTENT AREA -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content pt-4">
+                
+                <!-- Header Title Section -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Overview Metrics</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <button type="button" class="btn btn-sm btn-outline-secondary me-2">
+                            <i class="bi bi-share me-1"></i> Share
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-download me-1"></i> Export PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STATISTICS CARDS ROW -->
+                <div class="row g-4 mb-4">
+                    <!-- E-commerce Card -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 text-primary p-3 rounded me-3">
+                                    <i class="bi bi-currency-dollar fs-3"></i>
+                                </div>
+                                <div>
+                                    <h6 class="card-subtitle text-muted mb-1">Total Revenue</h6>
+                                    <h4 class="card-title mb-0">$24,500</h4>
+                                    <small class="text-success"><i class="bi bi-arrow-up"></i> +12% MoM</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- College / Enrollment Card -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="bg-success bg-opacity-10 text-success p-3 rounded me-3">
+                                    <i class="bi bi-people fs-3"></i>
+                                </div>
+                                <div>
+                                    <h6 class="card-subtitle text-muted mb-1">New Enrollments</h6>
+                                    <h4 class="card-title mb-0">1,240</h4>
+                                    <small class="text-success"><i class="bi bi-arrow-up"></i> +5.4%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exam Passing Rate Card -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="bg-warning bg-opacity-10 text-warning p-3 rounded me-3">
+                                    <i class="bi bi-check2-circle fs-3"></i>
+                                </div>
+                                <div>
+                                    <h6 class="card-subtitle text-muted mb-1">Exam Passing Rate</h6>
+                                    <h4 class="card-title mb-0">87.3%</h4>
+                                    <small class="text-danger"><i class="bi bi-arrow-down"></i> -1.2%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Actions Card -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="bg-danger bg-opacity-10 text-danger p-3 rounded me-3">
+                                    <i class="bi bi-exclamation-triangle fs-3"></i>
+                                </div>
+                                <div>
+                                    <h6 class="card-subtitle text-muted mb-1">Pending Reviews</h6>
+                                    <h4 class="card-title mb-0">14</h4>
+                                    <small class="text-muted">Requires Action</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECONDARY CONTENT ROW (Table and Status) -->
+                <div class="row g-4">
+                    <!-- Recent Activities Table -->
+                    <div class="col-12 col-lg-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h5 class="mb-0">Recent Activity Log</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>User / Student</th>
+                                                <th>Category</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#1092</td>
+                                                <td>John Doe</td>
+                                                <td>Exam Submission</td>
+                                                <td><span class="badge bg-success">Passed</span></td>
+                                                <td>May 17, 2026</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1091</td>
+                                                <td>Jane Smith</td>
+                                                <td>Course Purchase</td>
+                                                <td><span class="badge bg-primary">Completed</span></td>
+                                                <td>May 16, 2026</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1090</td>
+                                                <td>Alex Mercer</td>
+                                                <td>Profile Update</td>
+                                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                                <td>May 15, 2026</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Analytics Card -->
+                    <div class="col-12 col-lg-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white py-3">
+                                <h5 class="mb-0">System Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-1">Server Load</p>
+                                <div class="progress mb-3" style="height: 10px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-1">Database Storage</p>
+                                <div class="progress mb-3" style="height: 10px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p class="mb-1">Memory Usage</p>
+                                <div class="progress" style="height: 10px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 91%" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
